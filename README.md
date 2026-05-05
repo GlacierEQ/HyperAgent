@@ -306,3 +306,4 @@ We welcome contributions to Hyperagent! Here's how you can help:
 - 💬 [Discord Community](https://discord.gg/zsYzsgVRjh)
 - 🐛 [Issue Tracker](https://github.com/hyperbrowserai/HyperAgent/issues)
 - 📧 [Email Support](mailto:info@hyperbrowser.ai)
+
