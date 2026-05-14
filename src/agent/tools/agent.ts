@@ -174,6 +174,9 @@ export const runAgentTask = async (
       }
     }
 
+    // Remove Highlights
+    await removeHighlight(page);
+
     // Build Agent Step Messages
     const msgs = await buildAgentStepMessages(
       baseMsgs,
