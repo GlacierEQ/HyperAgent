@@ -1,0 +1,57 @@
+schema_version: 1
+body_id: hyperagent
+control_plane: GlacierEQ/Pro-Mastermind
+identity_rule: HyperAgent supplies browser execution; Shadow, Phantom, Viper, and Polaris retain observation, continuity, precision, and navigation judgment.
+repository: GlacierEQ/HyperAgent
+upstream_repository: hyperbrowserai/HyperAgent
+runtime:
+  language: node
+  minimum_version: '20'
+  working_directory: .
+setup:
+  - yarn install --frozen-lockfile
+  - yarn build
+healthcheck:
+  command: node scripts/megamind-healthcheck.mjs
+launch:
+  command: yarn cli --help
+  stop_strategy: process_signal
+interfaces:
+  - command_line
+  - playwright
+  - mcp_client
+capabilities:
+  - natural_language_browser_actions
+  - structured_extraction
+  - multi_page_operation
+  - playwright_fallback
+  - mcp_workflows
+agent_mounts:
+  primary:
+    - stealth-shadow
+    - stealth-phantom
+    - stealth-viper
+    - stealth-polaris
+security:
+  trust_boundary: isolated_browser_profile_and_network_policy_required
+  secrets: environment_only_never_commit
+  browser_data: ephemeral_profile_preferred
+  anti_bot_features: legal_and_terms_review_required
+license:
+  declared: AGPL-3.0
+  boundary: Keep HyperAgent as an external process or separately distributed component unless AGPL obligations are intentionally accepted.
+receipts:
+  required_fields:
+    - body_id
+    - source_revision
+    - mission_id
+    - allowed_domains
+    - browser_profile_scope
+    - actions
+    - extracted_data_hashes
+    - blocked_actions
+    - exit_status
+readiness:
+  static_check: scripts/megamind-healthcheck.mjs
+  runtime_verified: false
+  truth_note: Static readiness can be verified without installing dependencies or accessing a browser. Full readiness requires dependency installation, browser availability, scoped model configuration, and a lawful bounded smoke test.
